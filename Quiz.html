@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}"><link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/65317eadaf.js" crossorigin="anonymous"></script>
+    <title>Personality Prediction</title>
+</head>
+
+<body>
+    <script>
+        function checkAge(){
+            
+        }
+    </script>
+
+    <header>
+        <nav class="navbar">
+            <div class="navbar-brand">
+                <p>Personality Prediction</p>
+            </div>
+
+            
+            <ul class="nav-item">
+               <li class="nav-items"><a href="/home"><i class="fas fa-home"></i>Home</a></li>
+                <li class="nav-items"><a href="/quiz"><i class="fab fa-wpforms"></i>Quiz</a></li>
+                <li class="nav-items"><a href="/about"><i class="fas fa-clipboard-list"></i>About</a></li>
+            </ul>     
+        </nav>
+    </header>
+
+    <main>
+
+    <div class="container">
+        <div class="card-left">
+            <h1>Instructions</h1>
+            <ul>
+                <li>This personality test contains 120 statements. There is no time limit. Most people take about 15
+                    minutes - please allow yourself plenty of time.</li>
+                <li>Please respond to all of the statements and answer in sequence.</li>
+                <li>Double-check that you have made the right choice. If you need to change an answer, simply select the
+                    new response and the incorrect response will disappear.</li>
+                <li>Try not to use the 'Neutral' option too often. </li>
+                <li>Describe yourself as you generally are now, not as you wish to be in the future.</li>
+                <li>Describe yourself, as you honestly see yourself, in relation to other people of the same sex and of
+                    roughly the same age. Your spontaneous answer is usually the most accurate.</li>
+            </ul>
+        </div>
+
+        <div class="card-right">
+            <table>
+                <tr>
+                    <td>1</td>
+                    <td>Disagree</td>
+                    <td>If you strongly disagree or if the statement is definitely false.</td>
+                </tr>
+
+                <tr>
+                    <td>3</td>
+                    <td>Neutral</td>
+                    <td>If you are neutral about the statement, if you cannot decide, or if the statement is about
+                        equally true and false</td>
+                </tr>
+
+                <tr>
+                    <td>5</td>
+                    <td>Agree</td>
+                    <td>If you strongly agree or if the statement is definitely true.</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+    <form action="{{ url_for('reply')}}" method="post">
+        <div class="main">
+
+
+
+            <h1>For each statement choose the response that best represents your opinion:
+            </h1>
+            <!-- Age and gender -->
+            <div class="row">
+                <div class="label">
+                    <span> </span>
+                    <label for="">Enter Your age</label>
+                </div>
+                <div class="radio">
+                    <input type="number" name="age" min ='14'>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="label">
+                    <span> </span>
+                    <label for="">Gender</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="gender" id="" value='Male'>
+                    <label for="">Male</label>
+                    <input type="radio" name="gender" id="" value='Female'>
+                    <label for="">Female</label>
+                </div>
+            </div>
+            <br>
+    
+            <div class="heading-row">
+                <!-- <div class="numbers"> -->
+                <span class="main-span"><h3>1</h3></span>
+                <span class="main-span"><h3>2</h3></span>
+                <span class="main-span"><h3>3</h3></span>
+                <span class="main-span"><h3>4</h3></span>
+                <span><h3>5</h3></span>
+                <!-- </div> -->
+            </div>
+    
+
+
+            <!-- ------------------   E  ------------------------------------------------------------------------------- -->
+
+            <div class="row">
+                <div class="label">
+                    <span>01</span>
+                    <label for="">I am the life of the party.</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="E1" id="" value='1'>
+                    <input type="radio" name="E1" id="" value='2'>
+                    <input type="radio" name="E1" id="" value='3'>
+                    <input type="radio" name="E1" id="" value='4'>
+                    <input type="radio" name="E1" id="" value='5'>
+                </div>
+            </div>
+    
+    
+            <div class="row">
+                <div class="label">
+                    <span>02</span>
+                    <label for="">I don't talk a lot.</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="E2" id="" value='1'>
+                    <input type="radio" name="E2" id="" value='2'>
+                    <input type="radio" name="E2" id="" value='3'>
+                    <input type="radio" name="E2" id="" value='4'>
+                    <input type="radio" name="E2" id="" value='5'>
+                </div>
+            </div>
+    
+    
+            <div class="row">
+                <div class="label">
+                    <span>03</span>
+                    <label for="">I feel comfortable around people.</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="E3" id="" value='1'>
+                    <input type="radio" name="E3" id="" value='2'>
+                    <input type="radio" name="E3" id="" value='3'>
+                    <input type="radio" name="E3" id="" value='4'>
+                    <input type="radio" name="E3" id="" value='5'>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="label">
+                    <span>04</span>
+                    <label for="">I keep in the background.</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="E4" id="" value='1'>
+                    <input type="radio" name="E4" id="" value='2'>
+                    <input type="radio" name="E4" id="" value='3'>
+                    <input type="radio" name="E4" id="" value='4'>
+                    <input type="radio" name="E4" id="" value='5'>
+                </div>
+            </div>
+    
+    
+            <div class="row">
+                <div class="label">
+                    <span>05</span>
+                    <label for="">I start conversations.</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="E5" id="" value='1'>
+                    <input type="radio" name="E5" id="" value='2'>
+                    <input type="radio" name="E5" id="" value='3'>
+                    <input type="radio" name="E5" id="" value='4'>
+                    <input type="radio" name="E5" id="" value='5'>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="label">
+                    <span>06</span>
+                    <label for="">I have little to say.</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="E6" id="" value='1'>
+                    <input type="radio" name="E6" id="" value='2'>
+                    <input type="radio" name="E6" id="" value='3'>
+                    <input type="radio" name="E6" id="" value='4'>
+                    <input type="radio" name="E6" id="" value='5'>
+                </div>
+            </div>
+    
+    
+            <div class="row">
+                <div class="label">
+                    <span>07</span>
+                    <label for="">I talk to a lot of different people at parties.</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="E7" id="" value='1'>
+                    <input type="radio" name="E7" id="" value='2'>
+                    <input type="radio" name="E7" id="" value='3'>
+                    <input type="radio" name="E7" id="" value='4'>
+                    <input type="radio" name="E7" id="" value='5'>
+                </div>
+            </div>
+    
+    
+            <div class="row">
+                <div class="label">
+                    <span>08</span>
+                    <label for="">I don't like to draw attention to myself.</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="E8" id="" value='1'>
+                    <input type="radio" name="E8" id="" value='2'>
+                    <input type="radio" name="E8" id="" value='3'>
+                    <input type="radio" name="E8" id="" value='4'>
+                    <input type="radio" name="E8" id="" value='5'>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="label">
+                    <span>09</span>
+                    <label for="">I don't mind being the center of attention.</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="E9" id="" value='1'>
+                    <input type="radio" name="E9" id="" value='2'>
+                    <input type="radio" name="E9" id="" value='3'>
+                    <input type="radio" name="E9" id="" value='4'>
+                    <input type="radio" name="E9" id="" value='5'>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="label">
+                    <span>10</span>
+                    <label for="">I am quiet around strangers.</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="E10" id="" value='1'>
+                    <input type="radio" name="E10" id="" value='2'>
+                    <input type="radio" name="E10" id="" value='3'>
+                    <input type="radio" name="E10" id="" value='4'>
+                    <input type="radio" name="E10" id="" value='5'>
+                </div>
+            </div>
+    
+            <!------------------------------------------------------------     N    ---------------------------------------------------------- -->
+            <br>
+            <div class="row">
+                <div class="label">
+                    <span>11</span>
+                    <label for="">I get stressed out easily.</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="N1" id="" value='1'>
+                    <input type="radio" name="N1" id="" value='2'>
+                    <input type="radio" name="N1" id="" value='3'>
+                    <input type="radio" name="N1" id="" value='4'>
+                    <input type="radio" name="N1" id="" value='5'>
+                </div>
+            </div>
+    
+    
+            <div class="row">
+                <div class="label">
+                    <span>12</span>
+                    <label for="">I am relaxed most of the time.</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="N2" id="" value='1'>
+                    <input type="radio" name="N2" id="" value='2'>
+                    <input type="radio" name="N2" id="" value='3'>
+                    <input type="radio" name="N2" id="" value='4'>
+                    <input type="radio" name="N2" id="" value='5'>
+                </div>
+            </div>
+    
+    
+            <div class="row">
+                <div class="label">
+                    <span>13</span>
+                    <label for="">I worry about things.</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="N3" id="" value='1'>
+                    <input type="radio" name="N3" id="" value='2'>
+                    <input type="radio" name="N3" id="" value='3'>
+                    <input type="radio" name="N3" id="" value='4'>
+                    <input type="radio" name="N3" id="" value='5'>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="label">
+                    <span>14</span>
+                    <label for="">I seldom feel blue.</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="N4" id="" value='1'>
+                    <input type="radio" name="N4" id="" value='2'>
+                    <input type="radio" name="N4" id="" value='3'>
+                    <input type="radio" name="N4" id="" value='4'>
+                    <input type="radio" name="N4" id="" value='5'>
+                </div>
+            </div>
+    
+    
+            <div class="row">
+                <div class="label">
+                    <span>15</span>
+                    <label for="">I am easily disturbed.</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="N5" id="" value='1'>
+                    <input type="radio" name="N5" id="" value='2'>
+                    <input type="radio" name="N5" id="" value='3'>
+                    <input type="radio" name="N5" id="" value='4'>
+                    <input type="radio" name="N5" id="" value='5'>
+                </div>
+            </div>
+    
+    
+    
+            <div class="row">
+                <div class="label">
+                    <span>16</span>
+                    <label for="">I get upset easily.</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="N6" id="" value='1'>
+                    <input type="radio" name="N6" id="" value='2'>
+                    <input type="radio" name="N6" id="" value='3'>
+                    <input type="radio" name="N6" id="" value='4'>
+                    <input type="radio" name="N6" id="" value='5'>
+                </div>
+            </div>
+    
+    
+            <div class="row">
+                <div class="label">
+                    <span>17</span>
+                    <label for="">I change my mood a lot.</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="N7" id="" value='1'>
+                    <input type="radio" name="N7" id="" value='2'>
+                    <input type="radio" name="N7" id="" value='3'>
+                    <input type="radio" name="N7" id="" value='4'>
+                    <input type="radio" name="N7" id="" value='5'>
+                </div>
+            </div>
+    
+    
+            <div class="row">
+                <div class="label">
+                    <span>18</span>
+                    <label for="">I have frequent mood swings.</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="N8" id="" value='1'>
+                    <input type="radio" name="N8" id="" value='2'>
+                    <input type="radio" name="N8" id="" value='3'>
+                    <input type="radio" name="N8" id="" value='4'>
+                    <input type="radio" name="N8" id="" value='5'>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="label">
+                    <span>19</span>
+                    <label for="">I get irritated easily.</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="N9" id="" value='1'>
+                    <input type="radio" name="N9" id="" value='2'>
+                    <input type="radio" name="N9" id="" value='3'>
+                    <input type="radio" name="N9" id="" value='4'>
+                    <input type="radio" name="N9" id="" value='5'>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="label">
+                    <span>20</span>
+                    <label for="">I often feel blue.</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="N10" id="" value='1'>
+                    <input type="radio" name="N10" id="" value='2'>
+                    <input type="radio" name="N10" id="" value='3'>
+                    <input type="radio" name="N10" id="" value='4'>
+                    <input type="radio" name="N10" id="" value='5'>
+                </div>
+            </div>
+    
+            <!-- --------------------------------------  A   ------------------------------------>
+            <br>
+            <div class="row">
+                <div class="label">
+                    <span>21</span>
+                    <label for="">I feel little concern for others.</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="A1" id="" value='1'>
+                    <input type="radio" name="A1" id="" value='2'>
+                    <input type="radio" name="A1" id="" value='3'>
+                    <input type="radio" name="A1" id="" value='4'>
+                    <input type="radio" name="A1" id="" value='5'>
+                </div>
+            </div>
+    
+    
+            <div class="row">
+                <div class="label">
+                    <span>22</span>
+                    <label for="">I am interested in people.</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="A2" id="" value='1'>
+                    <input type="radio" name="A2" id="" value='2'>
+                    <input type="radio" name="A2" id="" value='3'>
+                    <input type="radio" name="A2" id="" value='4'>
+                    <input type="radio" name="A2" id="" value='5'>
+                </div>
+            </div>
+    
+    
+            <div class="row">
+                <div class="label">
+                    <span>23</span>
+                    <label for="">I insult people.</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="A3" id="" value='1'>
+                    <input type="radio" name="A3" id="" value='2'>
+                    <input type="radio" name="A3" id="" value='3'>
+                    <input type="radio" name="A3" id="" value='4'>
+                    <input type="radio" name="A3" id="" value='5'>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="label">
+                    <span>24</span>
+                    <label for="">I sympathize with others' feelings.</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="A4" id="" value='1'>
+                    <input type="radio" name="A4" id="" value='2'>
+                    <input type="radio" name="A4" id="" value='3'>
+                    <input type="radio" name="A4" id="" value='4'>
+                    <input type="radio" name="A4" id="" value='5'>
+                </div>
+            </div>
+    
+    
+            <div class="row">
+                <div class="label">
+                    <span>25</span>
+                    <label for="">I am not interested in other people's problems.</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="A5" id="" value='1'>
+                    <input type="radio" name="A5" id="" value='2'>
+                    <input type="radio" name="A5" id="" value='3'>
+                    <input type="radio" name="A5" id="" value='4'>
+                    <input type="radio" name="A5" id="" value='5'>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="label">
+                    <span>26</span>
+                    <label for="">I have a soft heart.</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="A6" id="" value='1'>
+                    <input type="radio" name="A6" id="" value='2'>
+                    <input type="radio" name="A6" id="" value='3'>
+                    <input type="radio" name="A6" id="" value='4'>
+                    <input type="radio" name="A6" id="" value='5'>
+                </div>
+            </div>
+    
+    
+            <div class="row">
+                <div class="label">
+                    <span>27</span>
+                    <label for="">I am not really interested in others.</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="A7" id="" value='1'>
+                    <input type="radio" name="A7" id="" value='2'>
+                    <input type="radio" name="A7" id="" value='3'>
+                    <input type="radio" name="A7" id="" value='4'>
+                    <input type="radio" name="A7" id="" value='5'>
+                </div>
+            </div>
+    
+    
+            <div class="row">
+                <div class="label">
+                    <span>28</span>
+                    <label for="">I take time out for others.</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="A8" id="" value='1'>
+                    <input type="radio" name="A8" id="" value='2'>
+                    <input type="radio" name="A8" id="" value='3'>
+                    <input type="radio" name="A8" id="" value='4'>
+                    <input type="radio" name="A8" id="" value='5'>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="label">
+                    <span>29</span>
+                    <label for="">I feel others' emotions.</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="A9" id="" value='1'>
+                    <input type="radio" name="A9" id="" value='2'>
+                    <input type="radio" name="A9" id="" value='3'>
+                    <input type="radio" name="A9" id="" value='4'>
+                    <input type="radio" name="A9" id="" value='5'>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="label">
+                    <span>30</span>
+                    <label for="">I make people feel at ease.</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="A10" id="" value='1'>
+                    <input type="radio" name="A10" id="" value='2'>
+                    <input type="radio" name="A10" id="" value='3'>
+                    <input type="radio" name="A10" id="" value='4'>
+                    <input type="radio" name="A10" id="" value='5'>
+                </div>
+            </div>
+    
+    
+            <!------------------------------------C--------------------------------  -->
+    
+            <br>
+            <div class="row">
+                <div class="label">
+                    <span>31</span>
+                    <label for="">I am always prepared.</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="C1" id="" value='1'>
+                    <input type="radio" name="C1" id="" value='2'>
+                    <input type="radio" name="C1" id="" value='3'>
+                    <input type="radio" name="C1" id="" value='4'>
+                    <input type="radio" name="C1" id="" value='5'>
+                </div>
+            </div>
+    
+    
+            <div class="row">
+                <div class="label">
+                    <span>32</span>
+                    <label for="">I leave my belongings around.</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="C2" id="" value='1'>
+                    <input type="radio" name="C2" id="" value='2'>
+                    <input type="radio" name="C2" id="" value='3'>
+                    <input type="radio" name="C2" id="" value='5'>
+                    <input type="radio" name="C2" id="" value='5'>
+                </div>
+            </div>
+    
+    
+            <div class="row">
+                <div class="label">
+                    <span>33</span>
+                    <label for="">I pay attention to details.</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="C3" id="" value='1'>
+                    <input type="radio" name="C3" id="" value='2'>
+                    <input type="radio" name="C3" id="" value='3'>
+                    <input type="radio" name="C3" id="" value='4'>
+                    <input type="radio" name="C3" id="" value='5'>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="label">
+                    <span>34</span>
+                    <label for="">I make a mess of things</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="C4" id="" value='1'>
+                    <input type="radio" name="C4" id="" value='2'>
+                    <input type="radio" name="C4" id="" value='3'>
+                    <input type="radio" name="C4" id="" value='4'>
+                    <input type="radio" name="C4" id="" value='5'>
+                </div>
+            </div>
+    
+    
+            <div class="row">
+                <div class="label">
+                    <span>35</span>
+                    <label for="">I get chores done right away.</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="C5" id="" value='1'>
+                    <input type="radio" name="C5" id="" value='2'>
+                    <input type="radio" name="C5" id="" value='3'>
+                    <input type="radio" name="C5" id="" value='5'>
+                    <input type="radio" name="C5" id="" value='5'>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="label">
+                    <span>36</span>
+                    <label for="">I often forget to put things back in their proper place.</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="C6" id="" value='1'>
+                    <input type="radio" name="C6" id="" value='2'>
+                    <input type="radio" name="C6" id="" value='3'>
+                    <input type="radio" name="C6" id="" value='4'>
+                    <input type="radio" name="C6" id="" value='5'>
+                </div>
+            </div>
+    
+    
+            <div class="row">
+                <div class="label">
+                    <span>37</span>
+                    <label for="">I like order.</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="C7" id="" value='1'>
+                    <input type="radio" name="C7" id="" value='2'>
+                    <input type="radio" name="C7" id="" value='3'>
+                    <input type="radio" name="C7" id="" value='4'>
+                    <input type="radio" name="C7" id="" value='5'>
+                </div>
+            </div>
+    
+    
+            <div class="row">
+                <div class="label">
+                    <span>38</span>
+                    <label for="">I shirk my duties.</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="C8" id="" value='1'>
+                    <input type="radio" name="C8" id="" value='2'>
+                    <input type="radio" name="C8" id="" value='3'>
+                    <input type="radio" name="C8" id="" value='4'>
+                    <input type="radio" name="C8" id="" value='5'>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="label">
+                    <span>39</span>
+                    <label for="">I follow a schedule.</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="C9" id="" value='1'>
+                    <input type="radio" name="C9" id="" value='2'>
+                    <input type="radio" name="C9" id="" value='3'>
+                    <input type="radio" name="C9" id="" value='4'>
+                    <input type="radio" name="C9" id="" value='5'>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="label">
+                    <span>40</span>
+                    <label for="">I am exacting in my work.</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="C10" id="" value='1'>
+                    <input type="radio" name="C10" id="" value='2'>
+                    <input type="radio" name="C10" id="" value='3'>
+                    <input type="radio" name="C10" id="" value='4'>
+                    <input type="radio" name="C10" id="" value='5'>
+                </div>
+            </div>
+    
+    
+            <!-- ----------------------------------------------O------------------------------------ -->
+    
+            <br>
+            <div class="row">
+                <div class="label">
+                    <span>41</span>
+                    <label for="">I am exacting in my work.</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="O1" id="" value='1'>
+                    <input type="radio" name="O1" id="" value='2'>
+                    <input type="radio" name="O1" id="" value='3'>
+                    <input type="radio" name="O1" id="" value='4'>
+                    <input type="radio" name="O1" id="" value='5'>
+                </div>
+            </div>
+    
+    
+            <div class="row">
+                <div class="label">
+                    <span>42</span>
+                    <label for="">I have difficulty understanding abstract ideas.</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="O2" id="" value='1'>
+                    <input type="radio" name="O2" id="" value='2'>
+                    <input type="radio" name="O2" id="" value='3'>
+                    <input type="radio" name="O2" id="" value='4'>
+                    <input type="radio" name="O2" id="" value='5'>
+                </div>
+            </div>
+    
+    
+            <div class="row">
+                <div class="label">
+                    <span>43</span>
+                    <label for="">I have a vivid imagination.</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="O3" id="" value='1'>
+                    <input type="radio" name="O3" id="" value='2'>
+                    <input type="radio" name="O3" id="" value='3'>
+                    <input type="radio" name="O3" id="" value='4'>
+                    <input type="radio" name="O3" id="" value='5'>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="label">
+                    <span>44</span>
+                    <label for="">I am not interested in abstract ideas.</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="O4" id="" value='1'>
+                    <input type="radio" name="O4" id="" value='2'>
+                    <input type="radio" name="O4" id="" value='3'>
+                    <input type="radio" name="O4" id="" value='4'>
+                    <input type="radio" name="O4" id="" value='5'>
+                </div>
+            </div>
+    
+    
+            <div class="row">
+                <div class="label">
+                    <span>45</span>
+                    <label for="">I have excellent ideas.</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="O5" id="" value='1'>
+                    <input type="radio" name="O5" id="" value='2'>
+                    <input type="radio" name="O5" id="" value='3'>
+                    <input type="radio" name="O5" id="" value='4'>
+                    <input type="radio" name="O5" id="" value='5'>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="label">
+                    <span>46</span>
+                    <label for="">I do not have a good imagination.</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="O6" id="" value='1'>
+                    <input type="radio" name="O6" id="" value='2'>
+                    <input type="radio" name="O6" id="" value='3'>
+                    <input type="radio" name="O6" id="" value='4'>
+                    <input type="radio" name="O6" id="" value='5'>
+                </div>
+            </div>
+    
+    
+            <div class="row">
+                <div class="label">
+                    <span>47</span>
+                    <label for="">I am quick to understand things.</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="O7" id="" value='1'>
+                    <input type="radio" name="O7" id="" value='2'>
+                    <input type="radio" name="O7" id="" value='3'>
+                    <input type="radio" name="O7" id="" value='4'>
+                    <input type="radio" name="O7" id="" value='5'>
+                </div>
+            </div>
+    
+    
+            <div class="row">
+                <div class="label">
+                    <span>48</span>
+                    <label for="">I use difficult words.</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="O8" id="" value='1'>
+                    <input type="radio" name="O8" id="" value='2'>
+                    <input type="radio" name="O8" id="" value='3'>
+                    <input type="radio" name="O8" id="" value='4'>
+                    <input type="radio" name="O8" id="" value='5'>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="label">
+                    <span>49</span>
+                    <label for="">I spend time reflecting on things.</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="O9" id="" value='1'>
+                    <input type="radio" name="O9" id="" value='2'>
+                    <input type="radio" name="O9" id="" value='3'>
+                    <input type="radio" name="O9" id="" value='4'>
+                    <input type="radio" name="O9" id="" value='5'>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="label">
+                    <span>50</span>
+                    <label for="">I am full of ideas.</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="O10" id="" value='1'>
+                    <input type="radio" name="O10" id="" value='2'>
+                    <input type="radio" name="O10" id="" value='3'>
+                    <input type="radio" name="O10" id="" value='4'>
+                    <input type="radio" name="O10" id="" value='5'>
+                </div>
+            </div>
+    
+    
+            <button type="submit" class="btn">Submit</button>
+    
+    
+        </div>
+
+    </form>
+    </main>
+
+</body>
+
+</html>
