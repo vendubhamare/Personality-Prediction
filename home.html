@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+    <script src="https://kit.fontawesome.com/65317eadaf.js" crossorigin="anonymous"></script>
+    <title>Personality Prediction</title>
+
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="navbar-brand">
+                <p>Personality Prediction</p>
+            </div>
+
+            
+            <ul class="nav-item">
+                <li class="nav-items"><a href="/home"><i class="fas fa-home"></i>Home</a></li>
+                <li class="nav-items"><a href="/quiz"><i class="fab fa-wpforms"></i>Quiz</a></li>
+                <li class="nav-items"><a href="/about"><i class="fas fa-clipboard-list"></i>About</a></li>
+            </ul>     
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-home">
+            <div class="hero-bg-image-container">
+                <img src="static/2.png" alt="bg hero image" class="hero-bg-image">
+            </div>
+           
+
+            <div class="hero-detail-home">
+                <h1 class="hero-title">Personality test</h1>
+                <p class="hero-description">Personality tests can reveal various aspects of your character and help you choose an appropriate career path. Regardless of your background, your personality is likely to influence your personal and professional decisions. Determining which personality test best fits your purposes can be an important step.Understanding personality science is the key to optimizing your behavior and getting to know yourself.</p>
+                
+                    <ul>
+                        <li>Openness</li>
+                        <li>Conscientiousness</li>
+                        <li>Extroversion</li>
+                        <li>Agreeableness</li>
+                        <li>Neuroticism</li>
+                    </ul>
+                
+            </div>
+
+        </section>
+    </main>
+</body>
+</html>
